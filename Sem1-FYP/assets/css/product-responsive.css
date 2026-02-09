@@ -1,0 +1,336 @@
+/* Responsive styles for products manager (admin dashboard) */
+
+/* Fluid typography for natural font scaling */
+:root {
+    --font-size-base: clamp(14px, 2.5vw, 16px);
+    --font-size-small: clamp(12px, 2vw, 14px);
+    --font-size-h1: clamp(24px, 5vw, 36px);
+    --font-size-h3: clamp(18px, 3.5vw, 22px);
+    --font-size-button: clamp(13px, 2.5vw, 15px);
+    --font-size-table: clamp(12px, 2vw, 14px);
+}
+
+/* Fix for full-width background */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base responsive adjustments */
+body {
+    font-size: var(--font-size-base);
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    .headsec {
+        padding: 15px 10px;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: var(--font-size-h1);
+        padding: 15px 10px;
+    }
+
+    .headsec p {
+        font-size: var(--font-size-small);
+        text-align: center;
+    }
+
+    .btn-nav {
+        padding: 8px 15px;
+        font-size: var(--font-size-button);
+        display: inline-block;
+        margin: 5px;
+    }
+
+    /* Add form responsive */
+    .add-form {
+        width: 85%;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .add-form h3 {
+        font-size: var(--font-size-h3) !important;
+    }
+
+    .add-form label {
+        font-size: var(--font-size-base);
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .add-form input[type="text"],
+    .add-form input[type="number"],
+    .add-form input[type="file"] {
+        font-size: var(--font-size-base);
+        padding: 8px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .add-product {
+        font-size: var(--font-size-button);
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    /* Table becomes card layout on mobile */
+    table {
+        width: 95%;
+        display: block;
+        overflow-x: auto;
+        font-size: var(--font-size-table);
+    }
+
+    th, td {
+        padding: 10px 8px;
+        font-size: var(--font-size-table);
+    }
+
+    input[type="text"], 
+    input[type="number"],
+    input[type="file"] {
+        font-size: var(--font-size-small);
+        padding: 6px;
+    }
+
+    button {
+        font-size: var(--font-size-button);
+        padding: 6px 10px;
+        margin: 3px 2px;
+    }
+
+    img.product-img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Mobile - Portrait */
+@media (max-width: 480px) {
+    .headsec {
+        padding: 10px;
+    }
+
+    h1 {
+        padding: 10px 5px;
+    }
+
+    .headsec p {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .btn-nav {
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+        margin: 3px 0;
+    }
+
+    /* Add form for mobile */
+    .add-form {
+        width: 95%;
+        padding: 12px;
+    }
+
+    .add-form br {
+        display: none;
+    }
+
+    .add-form label {
+        margin-bottom: 12px;
+    }
+
+    /* Convert table to card layout */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none; /* Hide table headers */
+    }
+
+    tr {
+        margin-bottom: 20px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    td {
+        border: none;
+        position: relative;
+        padding-left: 45%;
+        text-align: right;
+        min-height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #76b900;
+    }
+
+    /* Add data labels for mobile */
+    td:nth-of-type(1)::before { content: "ID:"; }
+    td:nth-of-type(2)::before { content: "Image:"; }
+    td:nth-of-type(3)::before { content: "Name:"; }
+    td:nth-of-type(4)::before { content: "Description:"; }
+    td:nth-of-type(5)::before { content: "Price:"; }
+    td:nth-of-type(6)::before { content: "Stock:"; }
+    td:nth-of-type(7)::before { content: "Actions:"; }
+
+    td:nth-of-type(7) {
+        padding-left: 10px;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 5px;
+        width: 100%;
+    }
+
+    td:nth-of-type(7)::before {
+        position: relative;
+        left: 0;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    td:nth-of-type(7) form {
+        display: inline-block !important;
+    }
+
+    td:nth-of-type(7) button {
+        display: inline-block;
+        width: auto;
+        min-width: 65px;
+        font-size: var(--font-size-button);
+        margin: 0 3px;
+    }
+
+    td:nth-of-type(7) input[type="file"] {
+        width: 100%;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    img.product-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"] {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    button {
+        width: auto;
+        min-width: 70px;
+        font-size: var(--font-size-button);
+    }
+}
+
+/* Extra small mobile */
+@media (max-width: 360px) {
+    .add-form {
+        width: 98%;
+        padding: 8px;
+    }
+
+    table {
+        width: 98%;
+    }
+
+    td {
+        padding-left: 40%;
+        font-size: 12px;
+    }
+
+    img.product-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 5px 8px;
+        min-width: 60px;
+    }
+}
+
+/* Landscape mode for mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    h1 {
+        padding: 8px 5px;
+        font-size: clamp(20px, 4vw, 28px);
+    }
+
+    .headsec {
+        padding: 8px;
+    }
+
+    .add-form {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .add-form h3 {
+        font-size: clamp(16px, 3vw, 20px) !important;
+    }
+
+    table {
+        margin-top: 10px;
+    }
+}
+
+/* Tablet landscape - optimize for horizontal viewing */
+@media (min-width: 481px) and (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    .add-form {
+        width: 70%;
+    }
+
+    th, td {
+        padding: 8px 6px;
+        font-size: var(--font-size-small);
+    }
+
+    img.product-img {
+        width: 70px;
+        height: 70px;
+    }
+}

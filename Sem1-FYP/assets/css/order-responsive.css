@@ -1,0 +1,418 @@
+/* Responsive styles for orders manager (admin dashboard) */
+
+/* Fluid typography for natural font scaling */
+:root {
+    --font-size-base: clamp(14px, 2.5vw, 16px);
+    --font-size-small: clamp(12px, 2vw, 14px);
+    --font-size-h1: clamp(24px, 5vw, 36px);
+    --font-size-button: clamp(13px, 2.5vw, 15px);
+    --font-size-table: clamp(12px, 2vw, 14px);
+    --font-size-input: clamp(14px, 2.5vw, 16px);
+}
+
+/* Hide order items by default */
+.order-items {
+    display: none !important;
+}
+
+/* Fix for full-width background */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-size: var(--font-size-base);
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    padding: 15px 10px;
+}
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: var(--font-size-h1);
+        padding: 15px 5px;
+        margin: 10px 0;
+    }
+
+    p {
+        font-size: var(--font-size-small);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .btn-nav {
+        padding: 8px 15px;
+        font-size: var(--font-size-button);
+        display: inline-block;
+        margin: 5px;
+        width: auto;
+        min-width: 150px;
+        text-align: center;
+    }
+
+    /* Filter section responsive */
+    .filter {
+        margin-top: 15px;
+        padding: 0 10px;
+    }
+
+    .filter form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .filter input[type="text"],
+    .filter select {
+        width: 100%;
+        padding: 10px;
+        font-size: var(--font-size-input);
+        box-sizing: border-box;
+    }
+
+    .btn-filter {
+        width: 100%;
+        padding: 10px;
+        font-size: var(--font-size-button);
+    }
+
+    /* Table responsive - horizontal scroll */
+    table {
+        display: block;
+        overflow-x: auto;
+        font-size: var(--font-size-table);
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px 8px;
+        font-size: var(--font-size-table);
+        white-space: nowrap;
+    }
+
+    button {
+        font-size: var(--font-size-button);
+        padding: 8px 12px;
+    }
+
+    /* Pagination responsive */
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .pagination a {
+        padding: 8px 12px;
+        font-size: var(--font-size-small);
+    }
+
+    /* Nested order items table */
+    .order-items table {
+        font-size: var(--font-size-small);
+        margin: 10px 0;
+    }
+
+    .order-items td {
+        padding-left: 10px;
+    }
+
+    .order-items table td,
+    .order-items table th {
+        padding: 8px !important;
+    }
+}
+
+/* Mobile - Portrait */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: clamp(20px, 4.5vw, 28px);
+        padding: 10px 5px;
+        margin: 5px 0;
+    }
+
+    p {
+        margin: 10px 0;
+    }
+
+    .btn-nav {
+        width: 100%;
+        max-width: 250px;
+        padding: 10px;
+    }
+
+    .filter {
+        padding: 0 5px;
+        margin-top: 10px;
+    }
+
+    .filter input[type="text"] {
+        font-size: 14px;
+    }
+
+    /* Convert main table to card layout */
+    table {
+        margin-top: 10px;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none; /* Hide headers on mobile */
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Don't apply card layout to order-items rows */
+    tbody tr.order-items {
+        border: none;
+        padding: 0;
+        margin-bottom: 0;
+        background: transparent;
+    }
+
+    tbody tr:not(.order-items) td {
+        border: none;
+        position: relative;
+        padding-left: 45%;
+        text-align: right;
+        min-height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    tbody tr:not(.order-items) td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #76b900;
+        font-size: var(--font-size-small);
+    }
+
+    /* Add data labels */
+    tbody tr:not(.order-items) td:nth-of-type(1)::before { content: "Order ID:"; }
+    tbody tr:not(.order-items) td:nth-of-type(2)::before { content: "User:"; }
+    tbody tr:not(.order-items) td:nth-of-type(3)::before { content: "Email:"; }
+    tbody tr:not(.order-items) td:nth-of-type(4)::before { content: "Total:"; }
+    tbody tr:not(.order-items) td:nth-of-type(5)::before { content: "Status:"; }
+    tbody tr:not(.order-items) td:nth-of-type(6)::before { content: "Date:"; }
+    tbody tr:not(.order-items) td:nth-of-type(7)::before { content: "Actions:"; }
+
+    /* Actions button centered */
+    tbody tr:not(.order-items) td:nth-of-type(7) {
+        justify-content: center;
+        padding-left: 10px;
+    }
+
+    tbody tr:not(.order-items) td:nth-of-type(7)::before {
+        position: relative;
+        left: 0;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    button {
+        font-size: var(--font-size-button);
+        padding: 10px 15px;
+        min-width: 120px;
+    }
+
+    /* Order items nested table - keep as regular table when visible */
+    .order-items[style*="table-row"] {
+        display: table-row !important;
+    }
+
+    .order-items td {
+        display: table-cell !important;
+        padding: 15px !important;
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+    }
+
+    /* Add background to order items section */
+    .order-items {
+        background: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    .order-items table {
+        width: 100%;
+        display: table;
+        font-size: var(--font-size-small);
+        margin: 15px 0;
+        border: 1px solid #76b900;
+        border-radius: 5px;
+    }
+
+    .order-items table thead {
+        display: table-header-group;
+    }
+
+    /* Add some space above the items table header */
+    .order-items table thead th {
+        padding-top: 12px !important;
+        background: rgba(118, 185, 0, 0.2);
+    }
+
+    .order-items table tbody {
+        display: table-row-group;
+    }
+
+    .order-items table tr {
+        display: table-row;
+        border: none;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+    }
+
+    .order-items table td,
+    .order-items table th {
+        display: table-cell;
+        padding: 8px !important;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    .order-items table td::before {
+        content: none !important;
+    }
+    
+    /* Remove labels from order items table cells */
+    .order-items table td {
+        padding-left: 8px !important;
+    }
+    
+    .order-items table td::before {
+        display: none !important;
+    }
+
+    /* Pagination adjustments */
+    .pagination {
+        padding: 10px 5px;
+    }
+
+    .pagination a {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+/* Extra small mobile */
+@media (max-width: 360px) {
+    h1 {
+        font-size: clamp(18px, 4vw, 24px);
+    }
+
+    tbody tr:not(.order-items) td {
+        padding-left: 40%;
+        font-size: 12px;
+    }
+
+    tbody tr:not(.order-items) td::before {
+        font-size: 11px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px 12px;
+        min-width: 100px;
+    }
+
+    .order-items table {
+        font-size: 11px;
+    }
+
+    .order-items table td,
+    .order-items table th {
+        padding: 3px !important;
+        font-size: 11px;
+    }
+}
+
+/* Landscape mode for mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    h1 {
+        font-size: clamp(18px, 3.5vw, 24px);
+        padding: 8px 5px;
+        margin: 5px 0;
+    }
+
+    p {
+        margin: 5px 0;
+    }
+
+    .filter {
+        margin-top: 8px;
+    }
+
+    .btn-nav {
+        padding: 6px 12px;
+    }
+
+    table {
+        margin-top: 8px;
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px 5px;
+    }
+}
+
+/* Tablet landscape - optimize for horizontal viewing */
+@media (min-width: 481px) and (max-width: 768px) {
+    .filter form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filter input[type="text"] {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .filter select {
+        flex: 0 0 150px;
+    }
+
+    .btn-filter {
+        flex: 0 0 100px;
+    }
+}

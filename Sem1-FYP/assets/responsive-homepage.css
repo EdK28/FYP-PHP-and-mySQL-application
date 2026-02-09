@@ -1,0 +1,178 @@
+/* Hamburger menu styles - added inline to not modify your CSS file */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Fix for product card alignment - makes descriptions take available space */
+.prod-description {
+    flex-grow: 1;
+}
+
+/* Responsive: Tablet and Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: nowrap !important;
+    }
+    
+    .navbar h1 {
+        flex: 1;
+    }
+    
+    /* Show hamburger on tablet and mobile */
+    .hamburger {
+        display: flex;
+    }
+    
+    /* Hide nav menu by default on tablet/mobile - COMPLETELY HIDDEN */
+    .navbar nav {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 100%;
+        max-width: 280px;
+        height: calc(100vh - 60px);
+        background-color: #0e0a0b;
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        padding: 30px 20px;
+        box-sizing: border-box;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.5);
+        transition: right 0.3s ease;
+        overflow-y: auto;
+        z-index: 999;
+    }
+    
+    /* Show nav menu when active */
+    .navbar nav.active {
+        display: flex;
+        right: 0;
+    }
+    
+    .navbar nav a {
+        margin-left: 0;
+        margin-bottom: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .navbar nav button {
+        width: 100%;
+        box-sizing: border-box;
+        white-space: normal !important;
+        word-wrap: break-word;
+        line-height: 1.4;
+        padding: 12px 15px;
+        height: auto !important;
+        min-height: 45px;
+    }
+    
+    /* Specific fix for View Orders button and all .btn-secondary */
+    .navbar nav .btn-secondary,
+    .navbar nav #view-orders-btn {
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        height: auto !important;
+        line-height: 1.5 !important;
+        padding: 12px 15px !important;
+        display: block !important;
+    }
+    
+    /* Fix cart-count span to be inline */
+    #cart-count {
+        display: inline !important;
+        width: auto !important;
+    }
+    
+    .navbar nav span {
+        margin-right: 0 !important;
+        margin-bottom: 0;
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+    
+    .product-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+        padding: 20px;
+    }
+}
+
+/* Mobile specific */
+@media (max-width: 480px) {
+    .navbar nav {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .navbar nav.active {
+        right: 0;
+    }
+    
+    .product-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+    
+    .product-card img {
+        height: 150px;
+    }
+    
+    .shop-btn {
+        width: 70%;
+    }
+}
+
+/* Fix overflow for 425px and below */
+@media (max-width: 425px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .navbar {
+        padding: 15px 15px;
+    }
+    
+    .navbar h1 {
+        font-size: 1.3rem;
+    }
+    
+    .product-container {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .product-card {
+        padding: 8px;
+    }
+}

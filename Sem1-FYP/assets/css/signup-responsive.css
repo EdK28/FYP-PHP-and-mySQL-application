@@ -1,0 +1,160 @@
+/* Responsive styles for signup.php */
+
+/* Base adjustments for all mobile devices */
+@media (max-width: 768px) {
+    body {
+        max-width: 90%;
+        margin: 30px auto;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    input[type="email"], 
+    input[type="password"], 
+    input[type="text"] {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 12px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    .toggle-password {
+        top: 36px;
+        right: 12px;
+        font-size: 20px;
+    }
+
+    .link {
+        font-size: 14px;
+    }
+
+    #passwordErrorPopup {
+        width: 85%;
+        max-width: 350px;
+        padding: 18px 25px;
+        font-size: 13px;
+    }
+}
+
+/* Mobile phones - portrait */
+@media (max-width: 480px) {
+    body {
+        max-width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="email"], 
+    input[type="password"], 
+    input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    .error, .success {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .link {
+        font-size: 13px;
+        margin-top: 12px;
+    }
+
+    .toggle-password {
+        top: 34px;
+        font-size: 18px;
+    }
+
+    #passwordErrorPopup {
+        width: 90%;
+        padding: 15px 20px;
+        font-size: 12px;
+    }
+
+    #closePopup {
+        display: block;
+        margin-top: 10px;
+        margin-left: 0 !important;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 360px) {
+    body {
+        max-width: 100%;
+        margin: 15px auto;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    input[type="email"], 
+    input[type="password"], 
+    input[type="text"] {
+        padding: 8px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    #passwordErrorPopup {
+        width: 95%;
+        padding: 12px 15px;
+    }
+}
+
+/* Landscape mode optimization for mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    body {
+        margin: 10px auto;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .link {
+        margin-top: 10px;
+    }
+
+    #passwordErrorPopup {
+        padding: 10px 15px;
+        font-size: 11px;
+    }
+}

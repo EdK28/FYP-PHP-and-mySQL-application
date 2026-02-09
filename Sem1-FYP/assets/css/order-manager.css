@@ -1,0 +1,108 @@
+body {
+    margin:0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+    background-image: url("../media/kaws-sad.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ddd;
+}
+
+.btn-nav {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding:10px;
+    border-radius:20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-nav:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 10px;
+}
+
+.btn-filter {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-filter:hover {
+    transform:scale(1.05);
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 10px;
+}
+
+table { 
+    background-color: black;
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+}
+
+th, td { 
+    padding: 8px; 
+    border: 1px solid #ddd; 
+    text-align: left; 
+}
+
+th {  
+    cursor: pointer; 
+}
+
+a { 
+    text-decoration: none; 
+    color: #2196F3; 
+}
+
+.status-Completed { 
+    color: green; 
+    font-weight: bold; 
+}
+
+.status-Cancelled { 
+    color: red; 
+    font-weight: bold; 
+}
+
+button { 
+    padding: 10px; 
+    margin: 0; 
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer; 
+}
+
+.order-items { 
+    background: black; 
+    display: none; 
+}
+
+.order-items td { 
+    border: none; 
+    padding-left: 20px; 
+}
+
+.pagination { 
+    margin-top: 10px; 
+}
+
+.pagination a { 
+    padding: 5px 10px; 
+    border: 1px solid #ddd; 
+    margin-right: 5px; 
+    text-decoration: none; 
+    color: #2196F3; 
+}
+
+.pagination a.active { 
+    font-weight: bold; 
+    background-color: #eee; 
+}
+
+.filter { 
+    margin-top: 20px; 
+}

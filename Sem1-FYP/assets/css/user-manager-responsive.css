@@ -1,0 +1,84 @@
+/* ---------- Global font scaling ---------- */
+body {
+    font-size: clamp(15px, 2.6vw, 17px);
+}
+
+h1 {
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+}
+
+/* ---------- Table handling ---------- */
+table {
+    max-width: fit-content;
+    margin:0 auto;
+    display: block;
+}
+
+/* ---------- Tablet view ---------- */
+@media (max-width: 1024px) {
+    th,
+    td {
+        font-size: clamp(0.85rem, 2.4vw, 1rem);
+        padding: 10px;
+    }
+
+    button {
+        font-size: clamp(0.85rem, 2.3vw, 1rem);
+    }
+}
+
+/* ---------- Mobile view ---------- */
+@media (max-width: 600px) {
+
+    /* Stack table rows */
+    thead {
+        display: none;
+    }
+
+    tbody,
+    tr {
+        display: block;
+        width: 100%;
+    }
+
+    tr {
+        margin-bottom: 18px;
+        border: 1px solid #444;
+        border-radius: 12px;
+        padding: 12px;
+        background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+        padding: 8px 0;
+        font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+
+    td::before {
+        font-weight: bold;
+        margin-right: 12px;
+        color: #aaa;
+    }
+
+    td:nth-of-type(1)::before { content: "ID"; }
+    td:nth-of-type(2)::before { content: "Username"; }
+    td:nth-of-type(3)::before { content: "Email"; }
+    td:nth-of-type(4)::before { content: "Role"; }
+    td:nth-of-type(5)::before { content: "Actions"; }
+
+    button {
+        width: 100%;
+        margin-top: 6px;
+        font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+}

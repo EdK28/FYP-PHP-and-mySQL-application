@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+    background-image: url("../media/kaws-sad.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ddd;
+}
+
+/* Navigation Button */
+.btn-nav {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+
+    padding: 10px;
+    border-radius: 20px;
+
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-nav:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 10px;
+}
+
+/* Table Styling */
+table {
+    background-color: black;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Links */
+a {
+    color: #2196F3;
+    text-decoration: none;
+}
+
+/* Buttons */
+button {
+    padding: 10px;
+    margin: 2px;
+    border-radius: 15px;
+
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 10px;
+}
+
+/* Form Inputs */
+input[type="text"],
+input[type="email"] {
+    width: 90%;
+    padding: 4px;
+}

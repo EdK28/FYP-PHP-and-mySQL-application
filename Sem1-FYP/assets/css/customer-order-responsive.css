@@ -1,0 +1,362 @@
+/* Responsive styles for customer order page */
+
+/* Fluid typography for natural font scaling */
+:root {
+    --font-size-base: clamp(14px, 2.5vw, 16px);
+    --font-size-small: clamp(12px, 2vw, 14px);
+    --font-size-h2: clamp(24px, 5vw, 32px);
+    --font-size-h3: clamp(18px, 3.5vw, 22px);
+    --font-size-button: clamp(13px, 2.5vw, 15px);
+    --font-size-table: clamp(12px, 2vw, 14px);
+    --font-size-modal: clamp(14px, 2.5vw, 16px);
+}
+
+/* Base responsive adjustments */
+body {
+    font-size: var(--font-size-base);
+    padding: 20px;
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+.order h3 {
+    font-size: var(--font-size-h3);
+}
+
+.order p {
+    font-size: var(--font-size-base);
+}
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: var(--font-size-h2);
+        margin-bottom: 15px;
+    }
+
+    .order {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+
+    .order h3 {
+        font-size: var(--font-size-h3);
+        margin-bottom: 8px;
+    }
+
+    .order p {
+        font-size: var(--font-size-small);
+        margin: 5px 0;
+    }
+
+    /* Make table horizontally scrollable */
+    .order-items {
+        display: block;
+        overflow-x: auto;
+        font-size: var(--font-size-table);
+        margin-top: 10px;
+    }
+
+    .order-items th,
+    .order-items td {
+        padding: 8px 6px;
+        font-size: var(--font-size-table);
+        white-space: nowrap;
+    }
+
+    /* Button styles */
+    .pay-btn,
+    .cancel-btn,
+    .home-btn {
+        font-size: var(--font-size-button);
+        padding: 10px 14px;
+        width: auto;
+        min-width: 120px;
+        margin-top: 10px;
+    }
+
+    /* Modal adjustments */
+    .payment-modal .modal-content {
+        width: 95%;
+        padding: 20px 25px;
+    }
+
+    .payment-modal h2 {
+        font-size: var(--font-size-h3);
+    }
+
+    .payment-modal p {
+        font-size: var(--font-size-small);
+    }
+
+    .payment-modal label {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Mobile - Portrait */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    h2 {
+        font-size: clamp(20px, 5vw, 28px);
+        margin-bottom: 15px;
+    }
+
+    .order {
+        padding: 10px;
+        margin-bottom: 12px;
+    }
+
+    .order h3 {
+        font-size: clamp(16px, 4vw, 20px);
+        margin-bottom: 8px;
+    }
+
+    .order p {
+        font-size: var(--font-size-small);
+        margin: 4px 0;
+    }
+
+    /* Convert table to card layout for mobile */
+    .order-items {
+        display: block;
+        overflow-x: visible;
+        margin-top: 10px;
+    }
+
+    .order-items thead {
+        display: none;
+    }
+
+    .order-items tbody,
+    .order-items tr,
+    .order-items td {
+        display: block;
+    }
+
+    .order-items tr {
+        margin-bottom: 12px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: #f9f9f9;
+    }
+
+    .order-items td {
+        border: none;
+        padding: 6px 0;
+        text-align: left;
+        position: relative;
+        padding-left: 45%;
+        min-height: 25px;
+        display: flex;
+        align-items: center;
+        font-size: var(--font-size-small);
+    }
+
+    .order-items td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        color: #333;
+        font-size: var(--font-size-small);
+    }
+
+    /* Add data labels for each column */
+    .order-items td:nth-of-type(1)::before { content: "Product:"; }
+    .order-items td:nth-of-type(2)::before { content: "Quantity:"; }
+    .order-items td:nth-of-type(3)::before { content: "Price:"; }
+    .order-items td:nth-of-type(4)::before { content: "Subtotal:"; }
+
+    /* Buttons - full width on mobile */
+    .pay-btn,
+    .cancel-btn,
+    .home-btn {
+        font-size: var(--font-size-button);
+        padding: 12px;
+        width: 100%;
+        max-width: 250px;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    /* Modal adjustments for mobile */
+    .payment-modal .modal-content {
+        width: 95%;
+        padding: 20px;
+        max-width: 350px;
+    }
+
+    .payment-modal h2 {
+        font-size: clamp(18px, 4.5vw, 24px);
+        margin-bottom: 12px;
+    }
+
+    .payment-modal p {
+        font-size: 12px;
+    }
+
+    .payment-modal label {
+        font-size: var(--font-size-small);
+        display: block;
+        margin: 8px 0;
+    }
+
+    .payment-modal .pay-btn,
+    .payment-modal .cancel-btn {
+        width: 48%;
+        padding: 10px;
+        margin: 8px 1%;
+        display: inline-block;
+    }
+
+    .payment-modal .close {
+        font-size: 24px;
+        top: 8px;
+        right: 12px;
+    }
+
+    /* Success message */
+    .success-message {
+        font-size: var(--font-size-small);
+        padding: 8px;
+    }
+}
+
+/* Extra small mobile */
+@media (max-width: 360px) {
+    body {
+        padding: 8px;
+    }
+
+    h2 {
+        font-size: clamp(18px, 5vw, 24px);
+    }
+
+    .order h3 {
+        font-size: clamp(14px, 4vw, 18px);
+    }
+
+    .order p {
+        font-size: 12px;
+    }
+
+    .order-items td {
+        padding-left: 42%;
+        font-size: 11px;
+    }
+
+    .order-items td::before {
+        font-size: 11px;
+    }
+
+    .pay-btn,
+    .cancel-btn,
+    .home-btn {
+        font-size: 12px;
+        padding: 10px;
+        min-width: 100px;
+    }
+
+    .payment-modal .modal-content {
+        padding: 15px;
+    }
+
+    .payment-modal h2 {
+        font-size: clamp(16px, 4.5vw, 20px);
+    }
+
+    .payment-modal .pay-btn,
+    .payment-modal .cancel-btn {
+        width: 100%;
+        margin: 5px 0;
+        display: block;
+    }
+}
+
+/* Landscape mode for mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    body {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: clamp(18px, 3.5vw, 24px);
+        margin-bottom: 10px;
+    }
+
+    .order {
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    .order h3 {
+        font-size: clamp(14px, 3vw, 18px);
+        margin-bottom: 5px;
+    }
+
+    .order p {
+        font-size: 12px;
+        margin: 3px 0;
+    }
+
+    .order-items {
+        font-size: 11px;
+    }
+
+    .order-items th,
+    .order-items td {
+        padding: 5px 4px;
+        font-size: 11px;
+    }
+
+    .pay-btn,
+    .cancel-btn,
+    .home-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .payment-modal .modal-content {
+        padding: 15px 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
+
+/* Tablet landscape - optimize for horizontal viewing */
+@media (min-width: 481px) and (max-width: 768px) {
+    .order {
+        padding: 15px 20px;
+    }
+
+    .order-items {
+        overflow-x: auto;
+    }
+
+    .pay-btn,
+    .cancel-btn,
+    .home-btn {
+        display: inline-block;
+        min-width: 140px;
+        margin-right: 10px;
+    }
+
+    .payment-modal .modal-content {
+        max-width: 450px;
+    }
+}

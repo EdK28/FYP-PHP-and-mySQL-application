@@ -1,0 +1,73 @@
+body {
+    font-family: system-ui, sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+
+.hero-dashboard::before {
+    content: ''; /* Creates the pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../media/neon-back.gif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 1; /* Adjust opacity */
+    filter: brightness(60%);
+    z-index:-1; /* Sends the background image behind the text */
+}
+
+.hero-dashboard {
+    height:100vh;
+    margin-top:auto;
+    margin-bottom:auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    
+h1 { 
+    color: #f4f4f4; 
+}
+
+.btn1 {
+    background-color:  #25d130;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size:1.1rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn1:hover {
+    transform: scale(1.05);
+    background-color: #328f32;
+    box-shadow: 0 0 10px 7px rgba(220, 20, 60, 0.7);
+}
+
+.btn2 {
+    background-color: #c32323;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size:1.1rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn2:hover {
+    transform: scale(1.05);
+    background-color: #d4153c;
+    box-shadow: 0 0 10px 7px rgba(220, 20, 60, 0.7);
+}

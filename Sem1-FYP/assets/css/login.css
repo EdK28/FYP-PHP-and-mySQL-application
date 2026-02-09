@@ -1,0 +1,134 @@
+body {
+    background-image: url("../media/1356811.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1; 
+    color: white;
+    font-family: system-ui, sans-serif;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="email"], 
+input[type="password"], 
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: lightblue;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0b7dda;
+}
+
+.error {
+    color: red;
+    margin-bottom: 15px;
+}
+
+.link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 32px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-password i {
+    cursor: pointer;
+    font-size: 18px;
+    color: black;
+}
+
+.toggle-password:hover i {
+    color: #0b7dda;
+}
+
+.clickhere {
+    color: greenyellow;
+    text-decoration: none;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+.clickhere:hover {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+.success {
+    color: #4BB543;
+    background-color: rgba(75, 181, 67, 0.1);
+    border: 1px solid #4BB543;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.home-btn {
+    width: 40%;
+    margin-top: 20px;
+    background-color: #c32323;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.home-btn:hover {
+    transform: scale(1.05);
+    background-color: #d4153c;
+    box-shadow: 0 0 10px 7px rgba(220, 20, 60, 0.7);
+}
